@@ -1,0 +1,20 @@
+[
+  {
+    "location": "Kyiv",
+    "date": "2026-03-13",
+    "forecast": "Sunny",
+    "temperature": 12
+  },
+  {
+    "location": "Kyiv",
+    "date": "2026-03-14",
+    "forecast": "Cloudy",
+    "temperature": 10
+  },
+  {
+    "location": "Lviv",
+    "date": "2026-03-13",
+    "forecast": "Rain",
+    "temperature": 8
+  }
+]
