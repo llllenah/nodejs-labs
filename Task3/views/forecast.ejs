@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forecast</title>
+    <link rel="stylesheet" href="/stylesheets/weather.css">
+</head>
+<body>
+<div class="container">
+    <h2>Forecast for <%= location %></h2>
+    <ul>
+        <% if (forecast.length === 0) { %>
+            <p>No forecast found</p>
+        <% } %>
+        <% forecast.forEach(item => { %>
+            <li class="weather-card">
+                <div class="weather-info">
+                    <strong><%= item.date %></strong><br>
+                    <%= item.forecast %>
+                </div>
+                <div>
+                    <div class="icon">
+                        <% if(item.forecast === "Sunny"){ %>☀️<% } %>
+                        <% if(item.forecast === "Cloudy"){ %>☁️<% } %>
+                        <% if(item.forecast === "Rain"){ %>🌧<% } %>
+                    </div>
+                    <div class="temp">
+                        <%= item.temperature %>°C
+                    </div>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/">← Search another city</a>
+</div>
+</body>
+</html>
