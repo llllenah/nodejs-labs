@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="/stylesheets/weather.css">
+</head>
+<body>
+<div class="container">
+    <h2>Results for: <%= location %></h2>
+    
+    <% if (message) { %><div style="color: green; margin-bottom: 10px;"><b><%= message %></b></div><% } %>
+    <% if (error) { %><div style="color: red; margin-bottom: 10px;"><b><%= error %></b></div><% } %>
+
+    <ul style="list-style: none; padding: 0;">
+        <% forecast.forEach(item => { %>
+            <li class="weather-card" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding: 10px;">
+                <div>
+                    <strong><%= item.date.toISOString().split('T')[0] %></strong>: <%= item.forecast %>
+                    <span style="margin-left: 15px; font-weight: bold;"><%= item.temperature %>°C</span>
+                </div>
+                <form action="/delete" method="POST">
+                    <input type="hidden" name="id" value="<%= item.ForecastID %>">
+                    <input type="hidden" name="location" value="<%= location %>">
+                    <button type="submit" style="background: #e74c3c; border: none; color: white; padding: 5px 10px; cursor: pointer; border-radius: 4px;">🗑</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+
+    <div style="background: #ebf5fb; padding: 20px; border-radius: 10px; margin-top: 30px;">
+        <h4>🛡️ Admin: Data Archiving</h4>
+        <form action="/archive" method="POST">
+            <input type="date" name="beforeDate" required>
+            <button type="submit" style="background: #2980b9;">Archive Old Records</button>
+        </form>
+    </div>
+
+    <p><a href="/">← Back to Search</a></p>
+</div>
+</body>
+</html>

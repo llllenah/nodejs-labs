@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <title>Weather Archive</title>
+    <link rel="stylesheet" href="/stylesheets/weather.css">
+</head>
+<body>
+<div class="container" style="width: 800px;">
+    <h1>🗄️ Forecast archive</h1>
+    <a href="/">← Back to main</a>
+    
+    <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+        <thead>
+            <tr style="background: #eee;">
+                <th>ID</th>
+                <th>City</th>
+                <th>Date</th>
+                <th>Weather</th>
+                <th>Temp.</th>
+                <th>Archivation date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% archivedData.forEach(item => { %>
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td><%= item.ArchiveID %></td>
+                    <td><%= item.location %></td>
+                    <td><%= item.date.toISOString().split('T')[0] %></td>
+                    <td><%= item.forecast %></td>
+                    <td><%= item.temperature %>°C</td>
+                    <td style="font-size: 11px;"><%= item.ArchivedAt.toLocaleString() %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
