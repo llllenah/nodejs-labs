@@ -6,6 +6,5 @@ exports.getForecast = async (location) => {
     return data.filter(item => item.location.toLowerCase() === location.toLowerCase());
 };
 
-exports.addForecast = async (data) => await weatherRepository.createForecastTransaction(data);
+exports.saveForecast = async (data) => await weatherRepository.upsertForecastTransaction(data);
 exports.deleteForecast = async (id) => await weatherRepository.deleteForecastTransaction(id);
-exports.bulkAdjust = async (loc, amount) => await weatherRepository.updateLocationTemperaturesSafe(loc, amount);
