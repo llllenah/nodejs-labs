@@ -1,0 +1,18 @@
+{
+  "name": "weather-app-orm",
+  "version": "1.0.0",
+  "description": "Weather forecast web application with Sequelize ORM",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.1",
+    "morgan": "^1.10.1",
+    "sequelize": "^6.37.3",
+    "tedious": "^18.0.0"
+  }
+}

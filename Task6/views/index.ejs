@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather Service</title>
+    <link rel="stylesheet" href="/stylesheets/weather.css">
+</head>
+<body>
+<div class="container">
+    <h1>🌤️ Weather Search</h1>
+    <form action="/forecast" method="POST">
+        <input type="text" name="location" placeholder="Enter city (e.g. Kyiv)" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <hr style="margin: 40px 0;">
+
+    <div style="background: #f4f7f6; padding: 25px; border-radius: 12px; border: 1px solid #e0e0e0;">
+        <h3>Admin: Create or Update Forecast</h3>
+        <form action="/forecast/save" method="POST">
+            <input type="text" name="location" placeholder="City Name" required style="width: 100%; margin-bottom: 10px;">
+            <input type="date" name="date" required style="width: 100%; margin-bottom: 10px;">
+            <input type="text" name="forecast" placeholder="Condition (Sunny, Cloudy...)" required style="width: 100%; margin-bottom: 10px;">
+            <input type="number" name="temperature" placeholder="Temperature °C" required style="width: 100%; margin-bottom: 10px;">
+            <button type="submit" style="background: #27ae60; width: 100%;">Save to Database</button>
+        </form>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/archive" style="color: #3498db; text-decoration: none;">📂 View Archive</a>
+    </div>
+</div>
+</body>
+</html>
